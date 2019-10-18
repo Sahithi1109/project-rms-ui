@@ -1,0 +1,46 @@
+
+<div class="container">
+    <div class="row">
+        <!--Step 3: connect form group here -->
+        <form class="col-md-6 offset-md-3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <h2>Sign In</h2>
+            <div class="form-group row">
+                <label for="staticId" class="col-sm-2 col-form-label">Email: </label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control"
+                        [ngClass]="{ 'is-invalid': loginForm.get('email').touched && loginForm.get('email').invalid}"
+                        placeholder="Enter Email" formControlName="email" />
+                    <div class="invalid-feedback">
+                        <div>Email ID is Required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                    <label for="staticId" class="col-sm-2 col-form-label">Password: </label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control"
+                            [ngClass]="{ 'is-invalid': loginForm.get('password').touched && loginForm.get('password').invalid}"
+                            placeholder="Enter Password" formControlName="password" />
+                        <div class="invalid-feedback">
+                            <div>Password is Required</div>
+                        </div>
+                    </div>
+                </div>
+    
+
+            <div class="alert alert-success" *ngIf="isSaved">
+                Signed In Successfully
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                    <a routerLink="/register" class="btn btn-link">Sign Up</a>
+                </div>
+            </div>
+
+            
+        </form>
+    </div>
+</div>
